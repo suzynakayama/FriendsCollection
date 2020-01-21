@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Friend Details</h1>
+
+<div class="card">
+    <div class="card-content">
+        <span class="card-title">{{ friend.name }}</span>
+        <p>Background: {{ friend.background }}</p>
+        <p>Likes: {{ friend.likes }}</p>
+        {% if friend.age > 18 %}
+        <p>Age: {{ friend.age }}</p>
+        {% else %}
+        <p>Age: Underage!</p>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
