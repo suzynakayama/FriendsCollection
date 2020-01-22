@@ -6,8 +6,8 @@ from .forms import FeedingForm
 
 # Create your views here.
 
-def home(request):
-    return HttpResponse('<h1>Welcome to the Friends Collection page!</h1>')
+# def home(request):
+#     return HttpResponse('<h1>Welcome to the Friends Collection page!</h1>')
 
 def about(request):
     return render(request, 'about.html')

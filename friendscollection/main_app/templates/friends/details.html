@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1>Friend Details</h1>
+<h2>Friend Details</h2>
 
 <div class="row">
     <div class="col s6">
@@ -16,8 +16,12 @@
                 {% endif %}
             </div>
             <div class="card-action">
-                <a href="{% url 'friends_update' friend.id %}">Edit</a>
-                <a href="{% url 'friends_delete' friend.id %}">Delete</a>
+                <a href="{% url 'friends_update' friend.id %}" class="blue-text"
+                    >Edit</a
+                >
+                <a href="{% url 'friends_delete' friend.id %}" class="blue-text"
+                    >Delete</a
+                >
             </div>
         </div>
     </div>
@@ -27,7 +31,7 @@
             <input type="submit" class="btn" value="Give Booze!" />
         </form>
         {% if friend.enough_booze_for_today %}
-        <div class="card-panel teal-text center-align">
+        <div class="card-panel blue-text center-align">
             {{friend.name}} had enough booze for today!
         </div>
         {% else %}

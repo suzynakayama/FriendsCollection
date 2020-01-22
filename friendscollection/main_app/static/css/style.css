@@ -6,8 +6,30 @@ body {
     flex-direction: column;
 }
 
+nav {
+    background-color: #059be5;
+}
+
 main {
     flex: 1 0 auto;
+}
+
+a {
+    color: darkblue;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+.btn,
+.btn-large,
+.btn-small {
+    background-color: #059be5;
+}
+
+button a {
+    color: white;
 }
 
 footer {
@@ -21,35 +43,9 @@ footer p {
     align-content: center;
     align-items: center;
     justify-content: center;
+    margin: 0 auto;
 }
 
 footer span {
     line-height: 50px;
 }
-/* 
-footer {
-    display: flex;
-    text-align: center;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-    bottom: 0;
-    height: 50px;
-    line-height: 50px;
-    font-weight: bold;
-    font-size: 23px;
-    font-family: "Charm", cursive;
-}
-footer a {
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-}
-footer span {
-    font-size: 20px;
-    font-weight: 400;
-}
-footer img {
-    height: 25px;
-    width: 25px;
-} */
