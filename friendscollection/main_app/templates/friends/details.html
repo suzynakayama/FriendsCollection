@@ -26,6 +26,15 @@
             {% csrf_token %} {{ feeding_form.as_p }}
             <input type="submit" class="btn" value="Give Booze!" />
         </form>
+        {% if friend.enough_booze_for_today %}
+        <div class="card-panel teal-text center-align">
+            {{friend.name}} had enough booze for today!
+        </div>
+        {% else %}
+        <div class="card-panel red-text center-align">
+            {{friend.name}} needs more booze!
+        </div>
+        {% endif %}
         <table class="striped">
             <thead>
                 <tr>

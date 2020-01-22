@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from datetime import date
 
 DRINKS = (
     ('B', 'Beer'),
@@ -21,6 +22,9 @@ class Friend(models.Model):
     
     def get_absolute_url(self):
         return reverse('details', kwargs={'friend_id': self.id})
+    
+    def enough_booze_for_today(self):
+        return self.feeding_set.filter(date=date.today()).count() >= 3
 
 class Feeding(models.Model):
     date = models.DateField('drinking date')
