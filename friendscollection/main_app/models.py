@@ -10,12 +10,22 @@ DRINKS = (
     ('W', 'Wine'),
 )
 
+class Interest(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+    
+    def get_absolute_url(self):
+        return reverse('interests_detail', kwargs={'pk': self.id})
+
 # Create your models here.
 class Friend(models.Model):
     name = models.CharField(max_length=150)
     background = models.CharField(max_length=100)
     likes = models.TextField(max_length=350)
     age = models.IntegerField()
+    interests = models.ManyToManyField(Interest)
 
     def __str__(self):
         return self.name
@@ -41,3 +51,10 @@ class Feeding(models.Model):
     
     class Meta:
         ordering = ['-date']
+
+class Photo(models.Model):
+    url = models.CharField(max_length=250)
+    friend = models.ForeignKey(Friend, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'Photo for friend: {self.friend_id} @{self.url}'

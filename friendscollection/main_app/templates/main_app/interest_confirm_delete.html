@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block content %}
+
+<h2>Delete Interest</h2>
+
+<h4>
+    Are you sure you want to delete
+    <span class="blue-text">{{ object.name }}</span>?
+</h4>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Yes!" class="btn" />
+    <button class="btn">
+        <a href="{% url 'interests_detail' object.id %}">Cancel</a>
+    </button>
+</form>
+{% endblock %}

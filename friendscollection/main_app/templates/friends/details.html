@@ -57,7 +57,73 @@
         </table>
     </div>
 </div>
-
+<hr />
+<div class="row">
+    <div class="col s6">
+        <h3>{{ friend.name }}'s Interests</h3>
+        {% if friend.interests.count %} 
+            {% for interest in friend.interests.all%}
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">
+                        {{ interest.name }}
+                    </span>
+                </div>
+                <div class="card-action">
+                <form
+                    action="{% url 'dissoc_interest' friend.id interest.id %}"
+                    method="post"
+                >
+                    {% csrf_token %}
+                    <button type="submit" class="btn">Delete</button>
+                </form>
+            </div>
+            </div>
+            {% endfor %} 
+        {% else %}
+        <h5>No Interests yet :(</h5>
+        {% endif %}
+    </div>
+    <div class="col s6">
+        <h3>Available Interests</h3>
+        {% if interests.count %} {% for interest in interests.all %}
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">
+                    {{ interest.name }}
+                </span>
+            </div>
+            <div class="card-action">
+                <form
+                    action="{% url 'assoc_interest' friend.id interest.id %}"
+                    method="post"
+                >
+                    {% csrf_token %}
+                    <button type="submit" class="btn">Add</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %} {% else %}
+        <h5>{{friend.name}} Already Has All Interests Available</h5>
+        {% endif %}
+    </div>
+</div>
+{% for photo in friend.photo_set.all %}
+<img class="responsive-img card-panel" src="{{photo.url}}" />
+{% empty %}
+<div class="card-panel blue-text center-align">No Photos Uploaded Yet</div>
+{% endfor %}
+<form
+    action="{% url 'add_photo' friend.id %}"
+    enctype="multipart/form-data"
+    method="POST"
+    class="card-panel"
+>
+    {% csrf_token %}
+    <input type="file" name="photo-file" />
+    <br /><br />
+    <input type="submit" class="btn" value="Upload Photo" />
+</form>
 <script>
     let dateEl = document.getElementById("id_date");
     M.Datepicker.init(dateEl, {
