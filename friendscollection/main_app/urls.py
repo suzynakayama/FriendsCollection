@@ -18,4 +18,5 @@ urlpatterns = [
     path('interests/create/', views.InterestCreate.as_view(), name='interests_create'),
     path('interests/<int:pk>/update/', views.InterestUpdate.as_view(), name='interests_update'),
     path('interests/<int:pk>/delete', views.InterestDelete.as_view(), name='interests_delete'),
+    path('accounts/signup', views.signup, name='signup')
 ]
