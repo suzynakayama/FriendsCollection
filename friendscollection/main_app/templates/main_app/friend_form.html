@@ -1,7 +1,9 @@
 {% extends 'base.html' %} {% block content %} {% if object %}
-<h2>Edit <span class="blue-text">{{object.name}}</span></h2>
+<h2 class="center-align">
+    Edit <span class="blue-text">{{object.name}}</span>
+</h2>
 {% else %}
-<h1>Add Friend</h1>
+<h1 class="center-align">Add Friend</h1>
 {% endif %}
 <form action="" method="post">
     {% csrf_token %}

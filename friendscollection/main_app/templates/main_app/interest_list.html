@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
-<h2>Interest List</h2>
+<h2 class="center-align">Interest List</h2>
 
 {% for interest in interest_list %}
 <a href="{% url 'interests_detail' interest.id %}">
